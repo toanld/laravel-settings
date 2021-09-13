@@ -32,6 +32,20 @@ $ composer require qcod/laravel-settings
 ]
 ```
 
+Lumen register Service Provider by adding it in `bootstrap/app.php` providers array and Facade in aliases arrays.
+
+```php
+$app = new Laravel\Lumen\Application(
+    dirname(__DIR__)
+);
+$app->instance('path.config', app()->basePath() . DIRECTORY_SEPARATOR . 'config');
+$app->instance('path.storage', app()->basePath() . DIRECTORY_SEPARATOR . 'storage');
+$app->register(QCod\Settings\SettingsServiceProvider::class);
+if (!class_exists('Settings')) {
+    class_alias('QCod\Settings\Facade', 'Settings');
+}
+```
+
 In Laravel 5.5 or above the service provider automatically get registered and a facade `Setting::get('app_name')` will be available.
 
 **3** - Now run the migration by `php artisan migrate` to create the settings table.
