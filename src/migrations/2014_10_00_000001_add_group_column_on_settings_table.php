@@ -15,7 +15,7 @@ class AddGroupColumnOnSettingsTable extends Migration
     {
         Schema::table('settings', function (Blueprint $table) {
             $table->dropUnique('settings_name_unique');
-            $table->string('group')->default('default');
+            $table->string('group',50)->index()->default('default');
         });
     }
 
