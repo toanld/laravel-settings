@@ -15,7 +15,7 @@ Use `qcod/laravel-settings` to store key value pair settings in the database.
 **1** - You can install the package via composer:
 
 ```bash
-$ composer require qcod/laravel-settings
+$ composer require toanld/laravel-settings
 ```
 
 **2** - If you are installing on Laravel 5.4 or lower you will be needed to manually register Service Provider by adding it in `config/app.php` providers array and Facade in aliases arrays.
